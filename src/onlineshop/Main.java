@@ -24,12 +24,10 @@ public class Main {
 
   public static void main(String[] args) {
     // write your code here
-    LOGGER.trace("Trace Message!");
-    LOGGER.debug("Debug Message!");
-    LOGGER.info("Info Message!");
-    LOGGER.warn("Warn Message!");
-    LOGGER.error("Error Message!");
-    LOGGER.fatal("Fatal Message!");
+    Buch buch = neuesBuch("asdfasdf", "asdfasdfasdf", "asdfasdf", 333);
+    Buch buch2 = buch.clone();
+    System.out.println("buch2 = " + buch2);
+
   }
 
   /**
