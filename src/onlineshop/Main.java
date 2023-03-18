@@ -4,6 +4,7 @@ import onlineshop.waren.Buch;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+// TODO: Auto-generated Javadoc
 /**
  * Diese Klasse stellt den Einstiegspunkt in das Programm dar.
  * Dies Klasse beinhaltet die <code>mmain</code>-Methode, mit der
@@ -15,6 +16,8 @@ import org.apache.logging.log4j.Logger;
  * @version 1.0
  */
 public class Main {
+  
+  /** The logger. */
   private static Logger LOGGER = LogManager.getLogger(Main.class);
 
   /**
@@ -22,6 +25,11 @@ public class Main {
    */
   public OnlineShop onlineShop = null;
 
+  /**
+   * The main method.
+   *
+   * @param args the arguments
+   */
   public static void main(String[] args) {
     // write your code here
     Buch buch = neuesBuch("asdfasdf", "asdfasdfasdf", "asdfasdf", 333);
@@ -29,6 +37,7 @@ public class Main {
     System.out.println("buch2 = " + buch2);
 
   }
+  
 
   /**
    * Legt ein neues Buch and und benachrichtigt die
