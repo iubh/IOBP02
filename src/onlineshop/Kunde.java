@@ -2,14 +2,30 @@ package onlineshop;
 
 import java.util.Date;
 
-public class Kunde implements Comparable<Kunde> {
+// TODO: Auto-generated Javadoc
+/**
+ * The Class Kunde.
+ */
+public class Kunde implements Cloneable {
+  
+  /** The kundennummer. */
   private int kundennummer;
+  
+  /** The vorname. */
   private String vorname;
+  
+  /** The name. */
   private String name;
+  
+  /** The geschlecht. */
   private String geschlecht;
+  
+  /** The geburtsdatum. */
   private Date geburtsdatum;
 
   /**
+   * To string.
+   *
    * @return String
    */
   public String toString() {
@@ -37,7 +53,29 @@ public class Kunde implements Comparable<Kunde> {
       return super.equals(obj);
   }
 
+  /**
+   * Compare to.
+   *
+   * @param k the k
+   * @return the int
+   */
   public int compareTo(Kunde k) {
     return kundennummer - k.kundennummer;
+  }
+
+  /**
+   * Clone.
+   *
+   * @return the kunde
+   */
+  public Kunde clone() {
+    try {
+      Kunde k = (Kunde) super.clone();
+      return k;
+    }
+    catch (CloneNotSupportedException ex) {
+      System.out.println("Catch clone exception");
+      return null;
+    }
   }
 }
