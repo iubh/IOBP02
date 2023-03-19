@@ -2,7 +2,7 @@ package onlineshop;
 
 import java.util.Date;
 
-public class Kunde {
+public class Kunde implements Comparable<Kunde> {
   private int kundennummer;
   private String vorname;
   private String name;
@@ -20,9 +20,10 @@ public class Kunde {
         "Geburtsdatum: " + geburtsdatum;
   }
 
-  
-  /** 
-   * @param obj
+  /**
+   * Equals.
+   *
+   * @param obj the obj
    * @return boolean
    */
   public boolean equals(Object obj) {
@@ -34,5 +35,9 @@ public class Kunde {
       return kundennummer == k.kundennummer;
     } else
       return super.equals(obj);
+  }
+
+  public int compareTo(Kunde k) {
+    return kundennummer - k.kundennummer;
   }
 }
