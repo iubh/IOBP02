@@ -53,4 +53,13 @@ public class Artikel implements Cloneable {
     artikel.beschreibung = this.beschreibung;
     return artikel;
   }
+
+  /**
+   * To string.
+   *
+   * @return the string
+   */
+  public String toString() {
+    return super.toString();
+  }
 }

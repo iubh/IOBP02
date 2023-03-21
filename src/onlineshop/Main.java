@@ -35,6 +35,7 @@ public class Main {
     Buch buch = neuesBuch("asdfasdf", "asdfasdfasdf", "asdfasdf", 333);
     Buch buch2 = buch.clone();
     System.out.println("buch2 = " + buch2);
+    System.out.println(buch.toString());
 
   }
   

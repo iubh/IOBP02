@@ -87,18 +87,12 @@ public class Buch extends Artikel implements Cloneable {
     return buch;
   }
 
-  /**
+   /**
    * To string.
    *
    * @return the string
    */
-  @Override
   public String toString() {
-    return "Buch{" +
-      "seiten=" + seiten +
-      ", autor='" + autor + '\'' +
-      ", titel='" + titel + '\'' +
-      ", scanner=" + scanner +
-      '}';
+    return super.toString();
   }
 }

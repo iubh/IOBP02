@@ -63,4 +63,14 @@ public class Sachbuch extends Buch {
     private int getAnzahlThemen() {
         return 0;
     }
+
+
+  /**
+   * To string.
+   *
+   * @return the string
+   */
+  public String toString() {
+    return super.toString();
+  }
 }
