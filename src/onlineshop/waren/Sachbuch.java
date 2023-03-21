@@ -102,5 +102,6 @@ public class Sachbuch extends Buch {
         // System.out.println("Clone exception");
         // return null;
         // }
+        // Frage zu Einheit 2 Task 4.
     }
 }
