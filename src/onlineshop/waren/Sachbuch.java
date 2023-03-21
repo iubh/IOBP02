@@ -85,4 +85,11 @@ public class Sachbuch extends Buch {
         } else
             return super.equals(obj);
     }
+
+    /**
+     * @return int
+     */
+    public int hashCode() {
+        return super.hashCode();
+    }
 }

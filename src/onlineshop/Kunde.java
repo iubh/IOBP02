@@ -77,4 +77,12 @@ public class Kunde implements Cloneable {
       return null;
     }
   }
+
+  /**
+   * @return int
+   */
+  public int hashCode() {
+    String s = vorname + name + geschlecht;
+    return s.hashCode();
+  }
 }

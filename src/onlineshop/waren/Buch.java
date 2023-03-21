@@ -109,4 +109,11 @@ public class Buch extends Artikel implements Cloneable {
     } else
       return super.equals(obj);
   }
+
+  /**
+   * @return int
+   */
+  public int hashCode() {
+    return super.hashCode();
+  }
 }
