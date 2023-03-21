@@ -7,16 +7,16 @@ import java.util.Scanner;
  * The Class Buch.
  */
 public class Buch extends Artikel implements Cloneable {
-  
+
   /** The seiten. */
   protected int seiten;
-  
+
   /** The autor. */
   protected String autor;
-  
+
   /** The titel. */
   protected String titel;
-  
+
   /** The scanner. */
   Scanner scanner;
 
@@ -77,7 +77,7 @@ public class Buch extends Artikel implements Cloneable {
     Buch buch = null;
 
     try {
-      buch = (Buch)super.clone();
+      buch = (Buch) super.clone();
       buch.titel = this.titel;
       buch.autor = this.autor;
       buch.seiten = this.seiten;
@@ -87,12 +87,26 @@ public class Buch extends Artikel implements Cloneable {
     return buch;
   }
 
-   /**
+  /**
    * To string.
    *
    * @return the string
    */
   public String toString() {
     return super.toString();
+  }
+
+  /**
+   * @param obj
+   * @return boolean
+   */
+  public boolean equals(Object obj) {
+    if (this == obj)
+      return true;
+    if (obj instanceof Buch) {
+      Buch b = (Buch) obj;
+      return (seiten == b.seiten && autor.equals(b.autor) && titel.equals(b.titel));
+    } else
+      return super.equals(obj);
   }
 }

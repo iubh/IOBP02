@@ -1,14 +1,13 @@
 package onlineshop.waren;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class Sachbuch.
  */
 public class Sachbuch extends Buch {
-    
+
     /** The Constant KLASSEN_PRAEFIX. */
     private static final String KLASSEN_PRAEFIX = "SB";
-    
+
     /** The thema. */
     private String thema;
 
@@ -64,13 +63,26 @@ public class Sachbuch extends Buch {
         return 0;
     }
 
+    /**
+     * To string.
+     *
+     * @return the string
+     */
+    public String toString() {
+        return super.toString();
+    }
 
-  /**
-   * To string.
-   *
-   * @return the string
-   */
-  public String toString() {
-    return super.toString();
-  }
+    /**
+     * @param obj
+     * @return boolean
+     */
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj instanceof Sachbuch) {
+            Sachbuch s = (Sachbuch) obj;
+            return (thema.equals(s.beschreibung));
+        } else
+            return super.equals(obj);
+    }
 }

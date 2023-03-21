@@ -7,19 +7,19 @@ import java.util.Date;
  * The Class Kunde.
  */
 public class Kunde implements Cloneable {
-  
+
   /** The kundennummer. */
   private int kundennummer;
-  
+
   /** The vorname. */
   private String vorname;
-  
+
   /** The name. */
   private String name;
-  
+
   /** The geschlecht. */
   private String geschlecht;
-  
+
   /** The geburtsdatum. */
   private Date geburtsdatum;
 
@@ -72,8 +72,7 @@ public class Kunde implements Cloneable {
     try {
       Kunde k = (Kunde) super.clone();
       return k;
-    }
-    catch (CloneNotSupportedException ex) {
+    } catch (CloneNotSupportedException ex) {
       System.out.println("Catch clone exception");
       return null;
     }
