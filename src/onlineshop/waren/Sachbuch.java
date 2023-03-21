@@ -92,4 +92,15 @@ public class Sachbuch extends Buch {
     public int hashCode() {
         return super.hashCode();
     }
+
+    public Sachbuch clone() {
+        // try {
+        Sachbuch k = (Sachbuch) super.clone();
+        return k;
+        // will never catch exception
+        // } catch (CloneNotSupportedException ex) {
+        // System.out.println("Clone exception");
+        // return null;
+        // }
+    }
 }
