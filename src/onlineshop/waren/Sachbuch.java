@@ -6,7 +6,7 @@ package onlineshop.waren;
 public class Sachbuch extends Buch {
 
     /** The Constant KLASSEN_PRAEFIX. */
-    private static final String KLASSEN_PRAEFIX = "SB";
+    //private static final String KLASSEN_PRAEFIX = "SB";
 
     /** The thema. */
     private String thema;
