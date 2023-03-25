@@ -26,10 +26,11 @@ public class Kunde implements Cloneable {
   private Date geburtsdatum;
 
   public Kunde(String vorname, String nachname) {
+    this.vorname = vorname;
+    this.name = nachname;
   }
 
-  
-  /** 
+  /**
    * @return int
    */
   public int getKundennummer() {
@@ -42,11 +43,9 @@ public class Kunde implements Cloneable {
    * @return String
    */
   public String toString() {
-    return "Kunden-Objekt enthält folgende Daten: " + "\n" +
-        "Vorname: " + vorname + "\n" +
-        "Nachname: " + name + "\n" +
-        "Geschlecht: " + geschlecht + "\n" +
-        "Geburtsdatum: " + geburtsdatum;
+    return vorname + " " + name;
+    // "Geschlecht: " + geschlecht + "\n" +
+    // "Geburtsdatum: " + geburtsdatum;
   }
 
   /**
@@ -103,6 +102,11 @@ public class Kunde implements Cloneable {
   List<Integer> list = new ArrayList<Integer>();
   Integer wrapper = new Integer(zahl);
 
+  
+  /** 
+   * @param zahl
+   * @param wrapper
+   */
   public void add(int zahl, Integer wrapper) {
     list.add(wrapper);
   }

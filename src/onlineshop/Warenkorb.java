@@ -12,6 +12,25 @@ public class Warenkorb {
 
   private List<Artikel> artikelListe = new LinkedList<Artikel>();
 
+  public Warenkorb(int anzahlArtikel, float artikelSumme, boolean gutscheinEingeloest) {
+    this.anzahlArtikel = anzahlArtikel;
+    this.artikelSumme = artikelSumme;
+    this.gutscheinEingeloest = gutscheinEingeloest;
+  }
+
+  public Warenkorb() {
+  }
+
+  
+  /** 
+   * @return String
+   */
+  @Override
+  public String toString() {
+    return Integer.toString(this.anzahlArtikel) + Float.toString(this.artikelSumme) + " "
+        + Boolean.toString(this.gutscheinEingeloest);
+  }
+
   /**
    * @return int
    */

@@ -3,10 +3,15 @@ package onlineshop;
 import org.apache.logging.log4j.Logger;
 
 import onlineshop.waren.Buch;
+import onlineshop.waren.Sachbuch;
 
 import java.util.Scanner;
 
 import org.apache.logging.log4j.LogManager;
+
+import java.util.Queue;
+
+import java.util.concurrent.ConcurrentLinkedQueue;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -17,14 +22,34 @@ public class OnlineShop {
 	/** The logger. */
 	private static Logger logger = LogManager.getRootLogger();
 
+	private Queue<Bestellung> bestellungen = new ConcurrentLinkedQueue<Bestellung>();
+
 	/** The historie. */
 	private Historie historie = new Historie();
-	
+
+	public OnlineShop(Queue<Bestellung> bestellungen, Historie historie) {
+		this.bestellungen = bestellungen;
+		this.historie = historie;
+	}
+
+	public OnlineShop() {
+
+	}
+
 	/** The schritte. */
 	private String[] schritte = new String[] { "Warenkorb anzeigen",
 			"Zahlungsmethode wählen", "Zahlungsinformationen eingeben",
 			"Versandart wählen", "Bestellübersicht anzeigen",
 			"Bestellbestätigung anzeigen" };
+
+	
+	/** 
+	 * @return String
+	 */
+	// @Override
+	public String toString() {
+		return this.bestellungen.toString() + " " + this.historie.toString();
+	}
 
 	/**
 	 * The main method.
@@ -32,7 +57,7 @@ public class OnlineShop {
 	 * @param args the arguments
 	 */
 	public static void main(String[] args) {
-		System.out.println("Bitte eine Zahl auswählen (1,2 oder 3): ");
+		System.out.println("Bitte eine Zahl auswählen (1,2,3 oder 4): ");
 		Scanner s = new Scanner(System.in);
 		int eingabe = s.nextInt();
 		switch (eingabe) {
@@ -55,6 +80,35 @@ public class OnlineShop {
 			case 3:
 				OnlineShop shop = new OnlineShop();
 				shop.bestellprozess();
+				break;
+			case 4:
+				OnlineShop shopYo = new OnlineShop();
+				Kunde besteller = new Kunde("Ralf", "Koschke");
+				Warenkorb w1 = new Warenkorb();
+				w1.artikelHinzufuegen(new Sachbuch("47-11", "dpunkt Verlag",
+						"Requirements Engineering", 49.00, "Klaus Pohl", "SE"));
+				w1.artikelHinzufuegen(1, new Sachbuch("47-12", "Spektrum",
+						"UML Kompakt", 14.99F, "Helde Balzert", "SE"));
+				Bestellung erste = new Bestellung("2013-08-13 15:33:56", besteller, w1);
+				shopYo.bestellungen.offer(erste);
+				// 2. Bestellung
+				Warenkorb w2 = new Warenkorb();
+				w2.artikelHinzufuegen(new Sachbuch("47-13", "Spektrum",
+						"Software-Qualität", 34.99f, "Peter Liggesmeyer", "SE"));
+				w2.artikelHinzufuegen(0, new Sachbuch("47-14", "Springer",
+						"Faint Objects", 27.00f, "Brian Cudnik", "Astronomy"));
+				Bestellung zweite = new Bestellung("2013-08-13 15:42:11", besteller, w2);
+				shopYo.bestellungen.offer(zweite);
+				Warenkorb w3 = new Warenkorb();
+				w3.artikelHinzufuegen(new Sachbuch("47-15", "Pearson",
+						"Software-Engineering", 59.95f, "Ian Summerville", "SE"));
+				w3.artikelHinzufuegen(0, new Sachbuch("47-16", "Spektrum",
+						"Softwaremanagement", 64.99f, "Helmut Balzert", "SE"));
+				Bestellung dritte = new Bestellung("2013-08-13 15:45:23", besteller, w3);
+				shopYo.bestellungen.offer(dritte);
+				while (!shopYo.bestellungen.isEmpty()) {
+					System.out.println(shopYo.bestellungen.poll());
+				}
 				break;
 		}
 	}

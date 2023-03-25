@@ -17,6 +17,9 @@ public class Sachbuch extends Buch {
     public Sachbuch() {
     }
 
+    public Sachbuch(String string, String string2, String string3, double d, String string4, String string5) {
+    }
+
     /**
      * Gets the thema.
      *
