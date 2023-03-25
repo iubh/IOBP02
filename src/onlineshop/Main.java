@@ -32,8 +32,8 @@ public class Main {
     // write your code here
     Buch buch = neuesBuch("asdfasdf", "asdfasdfasdf", "asdfasdf", 333);
     Buch buch2 = buch.clone();
-    Kunde k1 = new Kunde();
-    Kunde k2 = new Kunde();
+    Kunde k1 = new Kunde("Markus","G");
+    Kunde k2 = new Kunde("Anja","K");
     System.out.println("buch2 = " + buch2);
     System.out.println(buch.toString());
     System.out.println(buch.hashCode());

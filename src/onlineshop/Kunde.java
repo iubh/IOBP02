@@ -1,6 +1,8 @@
 package onlineshop;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -22,6 +24,17 @@ public class Kunde implements Cloneable {
 
   /** The geburtsdatum. */
   private Date geburtsdatum;
+
+  public Kunde(String vorname, String nachname) {
+  }
+
+  
+  /** 
+   * @return int
+   */
+  public int getKundennummer() {
+    return kundennummer;
+  }
 
   /**
    * To string.
@@ -84,5 +97,13 @@ public class Kunde implements Cloneable {
   public int hashCode() {
     String s = vorname + name + geschlecht;
     return s.hashCode();
+  }
+
+  int zahl = 5;
+  List<Integer> list = new ArrayList<Integer>();
+  Integer wrapper = new Integer(zahl);
+
+  public void add(int zahl, Integer wrapper) {
+    list.add(wrapper);
   }
 }
