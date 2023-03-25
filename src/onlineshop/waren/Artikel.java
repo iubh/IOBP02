@@ -9,6 +9,8 @@ public class Artikel implements Cloneable {
   /** The beschreibung. */
   protected String beschreibung;
 
+  protected float preis;
+
   /** The hersteller. */
   protected String hersteller;
 
@@ -19,6 +21,20 @@ public class Artikel implements Cloneable {
    */
   public String getBeschreibung() {
     return beschreibung;
+  }
+
+  /**
+   * @param preis
+   */
+  public void setPreis(float preis) {
+    this.preis = preis;
+  }
+
+  /**
+   * @return float
+   */
+  public float getPreis() {
+    return this.preis;
   }
 
   /**

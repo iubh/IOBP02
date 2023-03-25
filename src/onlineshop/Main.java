@@ -16,7 +16,7 @@ import onlineshop.waren.Buch;
 public class Main {
 
   /** The logger. */
-  //private static Logger = LogManager.getLogger(Main.class);
+  // private static Logger = LogManager.getLogger(Main.class);
 
   /**
    * Der verwendete Online Shop.
