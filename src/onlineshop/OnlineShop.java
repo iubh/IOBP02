@@ -9,6 +9,7 @@ import java.util.Scanner;
 
 import org.apache.logging.log4j.LogManager;
 
+import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -60,7 +61,7 @@ public class OnlineShop {
 	 * @param args the arguments
 	 */
 	public static void main(String[] args) {
-		System.out.println("Bitte eine Zahl auswählen (1,2,3,4 oder 5): ");
+		System.out.println("Bitte eine Zahl auswählen (1,2,3,4,5 oder 6): ");
 		Scanner s = new Scanner(System.in);
 		int eingabe = s.nextInt();
 		OnlineShop shop = new OnlineShop();
@@ -113,6 +114,9 @@ public class OnlineShop {
 				break;
 			case 5:
 				shop.date();
+				break;
+			case 6:
+				shop.file();
 				break;
 		}
 	}
@@ -169,5 +173,12 @@ public class OnlineShop {
 		sdf.setCalendar(calendar);
 		formatDate = sdf.format(calendar.getTime());
 		System.out.println(formatDate);
+	}
+
+	private void file() {
+		File[] roots = File.listRoots();
+		for (File root : roots) {
+			System.out.println(root);
+		}
 	}
 }
