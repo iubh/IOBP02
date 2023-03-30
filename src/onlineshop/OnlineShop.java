@@ -9,6 +9,8 @@ import java.util.Scanner;
 
 import org.apache.logging.log4j.LogManager;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Queue;
 
 import java.util.concurrent.ConcurrentLinkedQueue;
@@ -148,6 +150,12 @@ public class OnlineShop {
 	}
 
 	private void date() {
-
+		Date datum = new Date();
+		datum.setMonth(datum.getMonth() + 6);
+		System.out.println(datum);
+		SimpleDateFormat sdf;
+		sdf = new SimpleDateFormat("dd.MM.yyyy");
+		String formatDate = sdf.format(datum);
+		System.out.println(formatDate);
 	}
 }
