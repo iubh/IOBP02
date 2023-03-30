@@ -10,7 +10,9 @@ import java.util.Scanner;
 import org.apache.logging.log4j.LogManager;
 
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.Queue;
 
 import java.util.concurrent.ConcurrentLinkedQueue;
@@ -156,6 +158,16 @@ public class OnlineShop {
 		SimpleDateFormat sdf;
 		sdf = new SimpleDateFormat("dd.MM.yyyy");
 		String formatDate = sdf.format(datum);
+		System.out.println(formatDate);
+		System.out.println("GregorianCalendar:");
+		GregorianCalendar calendar = new GregorianCalendar();
+		sdf.setCalendar(calendar);
+		formatDate = sdf.format(calendar.getTime());
+		System.out.println(formatDate);
+		System.out.println("GregorianCalendar Roll:");
+		calendar.roll(Calendar.MONTH, 3);
+		sdf.setCalendar(calendar);
+		formatDate = sdf.format(calendar.getTime());
 		System.out.println(formatDate);
 	}
 }
