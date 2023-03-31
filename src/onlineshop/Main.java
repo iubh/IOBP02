@@ -1,6 +1,10 @@
 package onlineshop;
 
+import java.util.Scanner;
+
 import onlineshop.waren.Buch;
+
+// TODO: Auto-generated Javadoc
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -32,10 +36,33 @@ public class Main {
    */
   public static void main(String[] args) {
     // write your code here
-    Buch buch = neuesBuch("asdfasdf", "asdfasdfasdf", "asdfasdf", 333);
-    Buch buch2 = buch.clone();
-    System.out.println("buch2 = " + buch2);
-
+    System.out.println("Bitte eine Zahl auswählen (1 oder 2): ");
+    Scanner s = new Scanner(System.in);
+    int eingabe = s.nextInt();
+    switch (eingabe) {
+      default -> {
+        System.out.println("Hi - please read docs!");
+        s.close();
+        break;
+      }
+      case 1 -> {
+        Buch buch = neuesBuch("asdfasdf", "asdfasdfasdf", "asdfasdf", 333);
+        Buch buch2 = buch.clone();
+        Kunde k1 = new Kunde("Markus", "G");
+        Kunde k2 = new Kunde("Anja", "K");
+        System.out.println("buch2 = " + buch2);
+        System.out.println(buch.toString());
+        System.out.println(buch.hashCode());
+        System.out.println(k1.hashCode());
+        System.out.println(k1 == k2);
+        s.close();
+        break;
+      }
+      case 2 -> {
+        new OnlineShop();
+        break;
+      }
+    }
   }
   
 
@@ -51,7 +78,7 @@ public class Main {
    * @throws RuntimeException wenn das Aktualisieren des Bestandes fehlschlägt
    */
   static public Buch neuesBuch(String autor, String titel,
-                               String hersteller, int bestand) {
+      String hersteller, int bestand) {
     Buch neuesBuch = new Buch();
     neuesBuch.setAutor(autor);
     neuesBuch.setTitel(titel);

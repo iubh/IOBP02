@@ -7,16 +7,16 @@ import java.util.Scanner;
  * The Class Buch.
  */
 public class Buch extends Artikel implements Cloneable {
-  
+
   /** The seiten. */
   protected int seiten;
-  
+
   /** The autor. */
   protected String autor;
-  
+
   /** The titel. */
   protected String titel;
-  
+
   /** The scanner. */
   Scanner scanner;
 
@@ -25,6 +25,10 @@ public class Buch extends Artikel implements Cloneable {
    *
    * @return the beschreibung
    */
+<<<<<<< HEAD
+=======
+
+>>>>>>> feature/mp-exercises-java-classbib
   @Override
   public String getBeschreibung() {
     return super.getBeschreibung();
@@ -77,7 +81,8 @@ public class Buch extends Artikel implements Cloneable {
     Buch buch = null;
 
     try {
-      buch = (Buch)super.clone();
+      buch = (Buch) super.clone();
+      buch = (Buch) super.clone();
       buch.titel = this.titel;
       buch.autor = this.autor;
       buch.seiten = this.seiten;
@@ -88,17 +93,33 @@ public class Buch extends Artikel implements Cloneable {
   }
 
   /**
-   * To string.
-   *
-   * @return the string
+   * @param obj
+   * @return boolean
    */
+  public boolean equals(Object obj) {
+    if (this == obj)
+      return true;
+    if (obj instanceof Buch) {
+      Buch b = (Buch) obj;
+      return (seiten == b.seiten && autor.equals(b.autor) && titel.equals(b.titel));
+    } else
+      return super.equals(obj);
+  }
+
+  /**
+   * @return int
+   */
+  public int hashCode() {
+    return super.hashCode();
+  }
+
   @Override
   public String toString() {
     return "Buch{" +
-      "seiten=" + seiten +
-      ", autor='" + autor + '\'' +
-      ", titel='" + titel + '\'' +
-      ", scanner=" + scanner +
-      '}';
+        "seiten=" + seiten +
+        ", autor='" + autor + '\'' +
+        ", titel='" + titel + '\'' +
+        ", scanner=" + scanner +
+        '}';
   }
 }

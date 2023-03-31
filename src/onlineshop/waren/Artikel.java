@@ -5,10 +5,12 @@ package onlineshop.waren;
  * The Class Artikel.
  */
 public class Artikel implements Cloneable {
-  
+
   /** The beschreibung. */
   protected String beschreibung;
-  
+
+  protected float preis;
+
   /** The hersteller. */
   protected String hersteller;
 
@@ -19,6 +21,20 @@ public class Artikel implements Cloneable {
    */
   public String getBeschreibung() {
     return beschreibung;
+  }
+
+  /**
+   * @param preis
+   */
+  public void setPreis(float preis) {
+    this.preis = preis;
+  }
+
+  /**
+   * @return float
+   */
+  public float getPreis() {
+    return this.preis;
   }
 
   /**
@@ -52,5 +68,28 @@ public class Artikel implements Cloneable {
     artikel.hersteller = this.hersteller;
     artikel.beschreibung = this.beschreibung;
     return artikel;
+  }
+
+  /**
+   * To string.
+   *
+   * @return the string
+   */
+  public String toString() {
+    return super.toString();
+  }
+
+  /**
+   * @param obj
+   * @return boolean
+   */
+  public boolean equals(Object obj) {
+    if (this == obj)
+      return true;
+    if (obj instanceof Artikel) {
+      Artikel a = (Artikel) obj;
+      return (beschreibung.equals(a.beschreibung) && hersteller.equals(a.hersteller));
+    } else
+      return super.equals(obj);
   }
 }

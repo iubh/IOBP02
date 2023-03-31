@@ -5,10 +5,10 @@ package onlineshop.waren;
  * The Class Sachbuch.
  */
 public class Sachbuch extends Buch {
-    
+
     /** The Constant KLASSEN_PRAEFIX. */
-    private static final String KLASSEN_PRAEFIX = "SB";
-    
+    // private static final String KLASSEN_PRAEFIX = "SB";
+
     /** The thema. */
     private String thema;
 
@@ -18,11 +18,16 @@ public class Sachbuch extends Buch {
     public Sachbuch() {
     }
 
+    public Sachbuch(String string, String string2, String string3, double d, String string4, String string5) {
+    }
+
     /**
      * Gets the thema.
      *
      * @return the thema
      */
+    private static final String KLASSEN_PRAEFIX = "SB";
+
     public String getThema() {
         return thema;
     }
@@ -62,5 +67,50 @@ public class Sachbuch extends Buch {
      */
     private int getAnzahlThemen() {
         return 0;
+    }
+
+    /**
+     * To string.
+     *
+     * @return the string
+     */
+    public String toString() {
+        return super.toString();
+    }
+
+    /**
+     * @param obj
+     * @return boolean
+     */
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj instanceof Sachbuch) {
+            Sachbuch s = (Sachbuch) obj;
+            return (thema.equals(s.beschreibung));
+        } else
+            return super.equals(obj);
+    }
+
+    /**
+     * @return int
+     */
+    public int hashCode() {
+        return super.hashCode();
+    }
+
+    /**
+     * @return Sachbuch
+     */
+    public Sachbuch clone() {
+        // try {
+        Sachbuch k = (Sachbuch) super.clone();
+        return k;
+        // will never catch exception
+        // }catch (CloneNotSupportedException ex) {
+        // System.out.println("Clone exception");
+        // return null;
+        // }
+        // Frage zu Einheit 2 Task 4.
     }
 }
