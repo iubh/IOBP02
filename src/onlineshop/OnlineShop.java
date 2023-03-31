@@ -9,7 +9,12 @@ import java.util.Scanner;
 
 import org.apache.logging.log4j.LogManager;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -181,9 +186,37 @@ public class OnlineShop {
 			System.out.println(root);
 
 			File[] files = root.listFiles();
-			for(File file : files) {
+			for (File file : files) {
 				System.out.print(file.getAbsolutePath() + " ");
 			}
+			System.out.println();
 		}
+
+		File datei = new File("test");
+		try {
+			FileReader fileReader = new FileReader(datei);
+			BufferedReader bufferedReader = new BufferedReader(fileReader);
+			for (String zeile = bufferedReader.readLine(); zeile != null; zeile = bufferedReader.readLine()) {
+				System.out.println(zeile);
+			}
+			bufferedReader.close();
+			fileReader.close();
+		} catch (FileNotFoundException ex) {
+			ex.printStackTrace();
+		} catch (IOException ex) {
+			ex.printStackTrace();
+		}
+		try {
+			FileWriter fileWriter = new FileWriter(datei);
+			Date datum = new Date();
+			SimpleDateFormat sdf;
+			sdf = new SimpleDateFormat("dd.MM.yyyy");
+			String formatDate = sdf.format(datum);
+			fileWriter.write(formatDate);
+			fileWriter.close();
+		} catch (IOException ex) {
+			ex.printStackTrace();
+		}
+
 	}
 }
