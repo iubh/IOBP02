@@ -39,16 +39,26 @@ public class OnlineShop {
 	/** The logger. */
 	private static Logger logger = LogManager.getRootLogger();
 
+	/** The bestellungen. */
 	private Queue<Bestellung> bestellungen = new ConcurrentLinkedQueue<Bestellung>();
 
 	/** The historie. */
 	private Historie historie = new Historie();
 
+	/**
+	 * Instantiates a new online shop.
+	 *
+	 * @param bestellungen the bestellungen
+	 * @param historie     the historie
+	 */
 	public OnlineShop(Queue<Bestellung> bestellungen, Historie historie) {
 		this.bestellungen = bestellungen;
 		this.historie = historie;
 	}
 
+	/**
+	 * Instantiates a new online shop.
+	 */
 	public OnlineShop() {
 		System.out.println("Bitte eine Zahl auswählen (1,2,3,4,5,6,7 oder 8): ");
 		Kunde besteller = new Kunde("Ralf", "Koschke");
@@ -131,6 +141,8 @@ public class OnlineShop {
 			"Bestellbestätigung anzeigen" };
 
 	/**
+	 * To string.
+	 *
 	 * @return String
 	 */
 	// @Override
@@ -172,6 +184,9 @@ public class OnlineShop {
 		s.close();
 	}
 
+	/**
+	 * Date.
+	 */
 	private void date() {
 		Date datum = new Date();
 		datum.setMonth(datum.getMonth() + 6);
@@ -192,6 +207,9 @@ public class OnlineShop {
 		System.out.println(formatDate);
 	}
 
+	/**
+	 * File.
+	 */
 	private void file() {
 		File[] roots = File.listRoots();
 		for (File root : roots) {
@@ -234,6 +252,9 @@ public class OnlineShop {
 		}
 	}
 
+	/**
+	 * Compress.
+	 */
 	private void compress() {
 		try {
 			BufferedWriter w = new BufferedWriter(
@@ -256,6 +277,9 @@ public class OnlineShop {
 		}
 	}
 
+	/**
+	 * Decompress.
+	 */
 	private void decompress() {
 		try {
 			BufferedReader b = new BufferedReader(

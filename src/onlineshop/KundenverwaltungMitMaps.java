@@ -36,7 +36,7 @@ public class KundenverwaltungMitMaps {
   }
 
   /**
-   * 
+   * Gets the kundendaten.
    *
    * @param kundenNr the kunden nr
    * @return Kunde

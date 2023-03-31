@@ -18,6 +18,16 @@ public class Sachbuch extends Buch {
     public Sachbuch() {
     }
 
+    /**
+     * Instantiates a new sachbuch.
+     *
+     * @param string  the string
+     * @param string2 the string 2
+     * @param string3 the string 3
+     * @param d       the d
+     * @param string4 the string 4
+     * @param string5 the string 5
+     */
     public Sachbuch(String string, String string2, String string3, double d, String string4, String string5) {
     }
 
@@ -28,6 +38,9 @@ public class Sachbuch extends Buch {
      */
     private static final String KLASSEN_PRAEFIX = "SB";
 
+    /**
+     * @return String
+     */
     public String getThema() {
         return thema;
     }
@@ -79,7 +92,9 @@ public class Sachbuch extends Buch {
     }
 
     /**
-     * @param obj
+     * Equals.
+     *
+     * @param obj the obj
      * @return boolean
      */
     public boolean equals(Object obj) {
@@ -93,6 +108,8 @@ public class Sachbuch extends Buch {
     }
 
     /**
+     * Hash code.
+     *
      * @return int
      */
     public int hashCode() {
@@ -100,6 +117,8 @@ public class Sachbuch extends Buch {
     }
 
     /**
+     * Clone.
+     *
      * @return Sachbuch
      */
     public Sachbuch clone() {

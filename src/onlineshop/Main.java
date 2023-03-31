@@ -20,7 +20,7 @@ import org.apache.logging.log4j.Logger;
  * @version 1.0
  */
 public class Main {
-  
+
   /** The logger. */
   private static Logger LOGGER = LogManager.getLogger(Main.class);
 
@@ -64,7 +64,6 @@ public class Main {
       }
     }
   }
-  
 
   /**
    * Legt ein neues Buch and und benachrichtigt die

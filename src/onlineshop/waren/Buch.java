@@ -90,7 +90,9 @@ public class Buch extends Artikel implements Cloneable {
   }
 
   /**
-   * @param obj
+   * Equals.
+   *
+   * @param obj the obj
    * @return boolean
    */
   public boolean equals(Object obj) {
@@ -104,12 +106,17 @@ public class Buch extends Artikel implements Cloneable {
   }
 
   /**
+   * Hash code.
+   *
    * @return int
    */
   public int hashCode() {
     return super.hashCode();
   }
 
+  /**
+   * @return String
+   */
   @Override
   public String toString() {
     return "Buch{" +

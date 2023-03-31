@@ -9,6 +9,7 @@ public class Artikel implements Cloneable {
   /** The beschreibung. */
   protected String beschreibung;
 
+  /** The preis. */
   protected float preis;
 
   /** The hersteller. */
@@ -24,13 +25,17 @@ public class Artikel implements Cloneable {
   }
 
   /**
-   * @param preis
+   * Sets the preis.
+   *
+   * @param preis the new preis
    */
   public void setPreis(float preis) {
     this.preis = preis;
   }
 
   /**
+   * Gets the preis.
+   *
    * @return float
    */
   public float getPreis() {
@@ -80,7 +85,9 @@ public class Artikel implements Cloneable {
   }
 
   /**
-   * @param obj
+   * Equals.
+   *
+   * @param obj the obj
    * @return boolean
    */
   public boolean equals(Object obj) {

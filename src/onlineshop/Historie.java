@@ -13,6 +13,8 @@ public class Historie {
   private Deque<String> historie = new ArrayDeque<String>();
 
   /**
+   * Zurueck.
+   *
    * @return String
    */
   public String zurueck() {
@@ -23,7 +25,7 @@ public class Historie {
   }
 
   /**
-   * 
+   * Weiter.
    *
    * @param s the s
    */

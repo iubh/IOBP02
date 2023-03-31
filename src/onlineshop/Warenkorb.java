@@ -5,24 +5,44 @@ import java.util.List;
 
 import onlineshop.waren.Artikel;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class Warenkorb.
+ */
 public class Warenkorb {
+
+  /** The anzahl artikel. */
   private int anzahlArtikel;
+
+  /** The artikel summe. */
   private float artikelSumme;
+
+  /** The gutschein eingeloest. */
   private boolean gutscheinEingeloest;
 
+  /** The artikel liste. */
   private List<Artikel> artikelListe = new LinkedList<Artikel>();
 
+  /**
+   * Instantiates a new warenkorb.
+   *
+   * @param anzahlArtikel       the anzahl artikel
+   * @param artikelSumme        the artikel summe
+   * @param gutscheinEingeloest the gutschein eingeloest
+   */
   public Warenkorb(int anzahlArtikel, float artikelSumme, boolean gutscheinEingeloest) {
     this.anzahlArtikel = anzahlArtikel;
     this.artikelSumme = artikelSumme;
     this.gutscheinEingeloest = gutscheinEingeloest;
   }
 
+  /**
+   * Instantiates a new warenkorb.
+   */
   public Warenkorb() {
   }
 
-  
-  /** 
+  /**
    * @return String
    */
   @Override
@@ -32,6 +52,8 @@ public class Warenkorb {
   }
 
   /**
+   * Hash code.
+   *
    * @return int
    */
   public int hashCode() {
@@ -44,8 +66,10 @@ public class Warenkorb {
   }
 
   /**
-   * @param position
-   * @param a
+   * Artikel hinzufuegen.
+   *
+   * @param position the position
+   * @param a        the a
    * @return boolean
    *         I recommend to use a Database. Following code is just for learning
    */
@@ -60,7 +84,9 @@ public class Warenkorb {
   }
 
   /**
-   * @param a
+   * Artikel hinzufuegen.
+   *
+   * @param a the a
    * @return boolean
    */
   public boolean artikelHinzufuegen(Artikel a) {
@@ -71,7 +97,9 @@ public class Warenkorb {
   }
 
   /**
-   * @param a
+   * Artikel entfernen.
+   *
+   * @param a the a
    * @return boolean
    */
   public boolean artikelEntfernen(Artikel a) {
@@ -81,12 +109,17 @@ public class Warenkorb {
     return erfolgreich;
   }
 
+  /**
+   * Leere warenkorb.
+   */
   public void leereWarenkorb() {
     artikelListe.clear();
     artikelSumme = 0;
   }
 
   /**
+   * Gets the anzahl artikel.
+   *
    * @return int
    */
   public int getAnzahlArtikel() {

@@ -16,7 +16,7 @@ public class Sortiment {
   private Set<Artikel> sortiment = new HashSet<Artikel>();
 
   /**
-   * 
+   * Neuer artikel.
    *
    * @param b the b
    * @return boolean

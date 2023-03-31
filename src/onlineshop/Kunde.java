@@ -25,12 +25,20 @@ public class Kunde implements Cloneable {
   /** The geburtsdatum. */
   private Date geburtsdatum;
 
+  /**
+   * Instantiates a new kunde.
+   *
+   * @param vorname  the vorname
+   * @param nachname the nachname
+   */
   public Kunde(String vorname, String nachname) {
     this.vorname = vorname;
     this.name = nachname;
   }
 
   /**
+   * Gets the kundennummer.
+   *
    * @return int
    */
   public int getKundennummer() {
@@ -91,6 +99,8 @@ public class Kunde implements Cloneable {
   }
 
   /**
+   * Hash code.
+   *
    * @return int
    */
   public int hashCode() {
@@ -98,14 +108,20 @@ public class Kunde implements Cloneable {
     return s.hashCode();
   }
 
+  /** The zahl. */
   int zahl = 5;
+
+  /** The list. */
   List<Integer> list = new ArrayList<Integer>();
+
+  /** The wrapper. */
   Integer wrapper = new Integer(zahl);
 
-  
-  /** 
-   * @param zahl
-   * @param wrapper
+  /**
+   * 
+   *
+   * @param zahl    the zahl
+   * @param wrapper the wrapper
    */
   public void add(int zahl, Integer wrapper) {
     list.add(wrapper);
