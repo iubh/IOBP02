@@ -179,6 +179,11 @@ public class OnlineShop {
 		File[] roots = File.listRoots();
 		for (File root : roots) {
 			System.out.println(root);
+
+			File[] files = root.listFiles();
+			for(File file : files) {
+				System.out.print(file.getAbsolutePath() + " ");
+			}
 		}
 	}
 }
