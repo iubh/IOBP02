@@ -25,10 +25,7 @@ public class Buch extends Artikel implements Cloneable {
    *
    * @return the beschreibung
    */
-<<<<<<< HEAD
-=======
 
->>>>>>> feature/mp-exercises-java-classbib
   @Override
   public String getBeschreibung() {
     return super.getBeschreibung();
