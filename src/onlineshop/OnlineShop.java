@@ -50,7 +50,78 @@ public class OnlineShop {
 	}
 
 	public OnlineShop() {
-
+		System.out.println("Bitte eine Zahl auswählen (1,2,3,4,5,6,7 oder 8): ");
+		Kunde besteller = new Kunde("Ralf", "Koschke");
+		Warenkorb w1 = new Warenkorb();
+		Buch buch = new Buch();
+		Warenkorb w2 = new Warenkorb();
+		Warenkorb w3 = new Warenkorb();
+		Scanner s = new Scanner(System.in);
+		int eingabe = s.nextInt();
+		switch (eingabe) {
+			case 1 -> {
+				buch.setAnzahlSeiten(42);
+				buch.setAutor("meister");
+				logger.info(buch);
+				logger.debug("1");
+				s.close();
+				break;
+			}
+			case 2 -> {
+				buch.setAnzahlSeiten(24);
+				buch.setAutor("gandalf");
+				logger.info(buch);
+				logger.debug("2");
+				s.close();
+				break;
+			}
+			case 3 -> {
+				this.bestellprozess();
+				break;
+			}
+			case 4 -> {
+				w1.artikelHinzufuegen(new Sachbuch("47-11", "dpunkt Verlag",
+						"Requirements Engineering", 49.00, "Klaus Pohl", "SE"));
+				w1.artikelHinzufuegen(1, new Sachbuch("47-12", "Spektrum",
+						"UML Kompakt", 14.99F, "Helde Balzert", "SE"));
+				Bestellung erste = new Bestellung("2013-08-13 15:33:56", besteller, w1);
+				this.bestellungen.offer(erste);
+				// 2. Bestellung
+				w2.artikelHinzufuegen(new Sachbuch("47-13", "Spektrum",
+						"Software-Qualität", 34.99f, "Peter Liggesmeyer", "SE"));
+				w2.artikelHinzufuegen(0, new Sachbuch("47-14", "Springer",
+						"Faint Objects", 27.00f, "Brian Cudnik", "Astronomy"));
+				Bestellung zweite = new Bestellung("2013-08-13 15:42:11", besteller, w2);
+				this.bestellungen.offer(zweite);
+				w3.artikelHinzufuegen(new Sachbuch("47-15", "Pearson",
+						"Software-Engineering", 59.95f, "Ian Summerville", "SE"));
+				w3.artikelHinzufuegen(0, new Sachbuch("47-16", "Spektrum",
+						"Softwaremanagement", 64.99f, "Helmut Balzert", "SE"));
+				Bestellung dritte = new Bestellung("2013-08-13 15:45:23", besteller, w3);
+				this.bestellungen.offer(dritte);
+				while (!this.bestellungen.isEmpty()) {
+					System.out.println(this.bestellungen.poll());
+				}
+				break;
+			}
+			case 5 -> {
+				this.date();
+				break;
+			}
+			case 6 -> {
+				this.file();
+				break;
+			}
+			case 7 -> {
+				this.compress();
+				break;
+			}
+			case 8 -> {
+				this.decompress();
+				break;
+			}
+		}
+		s.close();
 	}
 
 	/** The schritte. */
@@ -65,78 +136,6 @@ public class OnlineShop {
 	// @Override
 	public String toString() {
 		return this.bestellungen.toString() + " " + this.historie.toString();
-	}
-
-	/**
-	 * The main method.
-	 *
-	 * @param args the arguments
-	 */
-	public static void main(String[] args) {
-		System.out.println("Bitte eine Zahl auswählen (1,2,3,4,5,6,7 oder 8): ");
-		Scanner s = new Scanner(System.in);
-		int eingabe = s.nextInt();
-		OnlineShop shop = new OnlineShop();
-		Kunde besteller = new Kunde("Ralf", "Koschke");
-		Warenkorb w1 = new Warenkorb();
-		Buch buch = new Buch();
-		Warenkorb w2 = new Warenkorb();
-		Warenkorb w3 = new Warenkorb();
-		switch (eingabe) {
-			case 1:
-				buch.setAnzahlSeiten(42);
-				buch.setAutor("meister");
-				logger.info(buch);
-				logger.debug("1");
-				s.close();
-				break;
-			case 2:
-				buch.setAnzahlSeiten(24);
-				buch.setAutor("gandalf");
-				logger.info(buch);
-				logger.debug("2");
-				s.close();
-				break;
-			case 3:
-				shop.bestellprozess();
-				break;
-			case 4:
-				w1.artikelHinzufuegen(new Sachbuch("47-11", "dpunkt Verlag",
-						"Requirements Engineering", 49.00, "Klaus Pohl", "SE"));
-				w1.artikelHinzufuegen(1, new Sachbuch("47-12", "Spektrum",
-						"UML Kompakt", 14.99F, "Helde Balzert", "SE"));
-				Bestellung erste = new Bestellung("2013-08-13 15:33:56", besteller, w1);
-				shop.bestellungen.offer(erste);
-				// 2. Bestellung
-				w2.artikelHinzufuegen(new Sachbuch("47-13", "Spektrum",
-						"Software-Qualität", 34.99f, "Peter Liggesmeyer", "SE"));
-				w2.artikelHinzufuegen(0, new Sachbuch("47-14", "Springer",
-						"Faint Objects", 27.00f, "Brian Cudnik", "Astronomy"));
-				Bestellung zweite = new Bestellung("2013-08-13 15:42:11", besteller, w2);
-				shop.bestellungen.offer(zweite);
-				w3.artikelHinzufuegen(new Sachbuch("47-15", "Pearson",
-						"Software-Engineering", 59.95f, "Ian Summerville", "SE"));
-				w3.artikelHinzufuegen(0, new Sachbuch("47-16", "Spektrum",
-						"Softwaremanagement", 64.99f, "Helmut Balzert", "SE"));
-				Bestellung dritte = new Bestellung("2013-08-13 15:45:23", besteller, w3);
-				shop.bestellungen.offer(dritte);
-				while (!shop.bestellungen.isEmpty()) {
-					System.out.println(shop.bestellungen.poll());
-				}
-				break;
-			case 5:
-				shop.date();
-				break;
-			case 6:
-				shop.file();
-				break;
-			case 7:
-				shop.compress();
-				break;
-			case 8:
-				shop.decompress();
-				break;
-		}
 	}
 
 	/**
