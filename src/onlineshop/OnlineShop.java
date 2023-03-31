@@ -10,11 +10,16 @@ import java.util.Scanner;
 import org.apache.logging.log4j.LogManager;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -22,6 +27,8 @@ import java.util.GregorianCalendar;
 import java.util.Queue;
 
 import java.util.concurrent.ConcurrentLinkedQueue;
+import java.util.zip.DeflaterOutputStream;
+import java.util.zip.InflaterInputStream;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -66,7 +73,7 @@ public class OnlineShop {
 	 * @param args the arguments
 	 */
 	public static void main(String[] args) {
-		System.out.println("Bitte eine Zahl auswählen (1,2,3,4,5 oder 6): ");
+		System.out.println("Bitte eine Zahl auswählen (1,2,3,4,5,6,7 oder 8): ");
 		Scanner s = new Scanner(System.in);
 		int eingabe = s.nextInt();
 		OnlineShop shop = new OnlineShop();
@@ -122,6 +129,12 @@ public class OnlineShop {
 				break;
 			case 6:
 				shop.file();
+				break;
+			case 7:
+				shop.compress();
+				break;
+			case 8:
+				shop.decompress();
 				break;
 		}
 	}
@@ -193,19 +206,22 @@ public class OnlineShop {
 		}
 
 		File datei = new File("test");
-		try {
-			FileReader fileReader = new FileReader(datei);
-			BufferedReader bufferedReader = new BufferedReader(fileReader);
-			for (String zeile = bufferedReader.readLine(); zeile != null; zeile = bufferedReader.readLine()) {
-				System.out.println(zeile);
+		if (datei.exists()) {
+			try {
+				FileReader fileReader = new FileReader(datei);
+				BufferedReader bufferedReader = new BufferedReader(fileReader);
+				for (String zeile = bufferedReader.readLine(); zeile != null; zeile = bufferedReader.readLine()) {
+					System.out.println(zeile);
+				}
+				bufferedReader.close();
+				fileReader.close();
+			} catch (FileNotFoundException ex) {
+				ex.printStackTrace();
+			} catch (IOException ex) {
+				ex.printStackTrace();
 			}
-			bufferedReader.close();
-			fileReader.close();
-		} catch (FileNotFoundException ex) {
-			ex.printStackTrace();
-		} catch (IOException ex) {
-			ex.printStackTrace();
 		}
+
 		try {
 			FileWriter fileWriter = new FileWriter(datei);
 			Date datum = new Date();
@@ -217,6 +233,42 @@ public class OnlineShop {
 		} catch (IOException ex) {
 			ex.printStackTrace();
 		}
+	}
 
+	private void compress() {
+		try {
+			BufferedWriter w = new BufferedWriter(
+					new OutputStreamWriter(new DeflaterOutputStream(new FileOutputStream(new File("compress")))));
+			GregorianCalendar calendar = new GregorianCalendar();
+			SimpleDateFormat sdf;
+			sdf = new SimpleDateFormat("kk.mm.ss.SSS");
+			for (int i = 0; i < 100; ++i) {
+				Date date = new Date();
+				calendar.setTime(date);
+				String formatDate = sdf.format(calendar.getTime());
+				System.out.println(formatDate);
+				w.write(formatDate + "\n");
+			}
+			w.close();
+		} catch (FileNotFoundException ex) {
+			ex.printStackTrace();
+		} catch (IOException ex) {
+			ex.printStackTrace();
+		}
+	}
+
+	private void decompress() {
+		try {
+			BufferedReader b = new BufferedReader(
+					new InputStreamReader(new InflaterInputStream(new FileInputStream((new File("compress"))))));
+			for (String s = b.readLine(); s != null; s = b.readLine()) {
+				System.out.println(s);
+			}
+			b.close();
+		} catch (FileNotFoundException ex) {
+			ex.printStackTrace();
+		} catch (IOException ex) {
+			ex.printStackTrace();
+		}
 	}
 }
