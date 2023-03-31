@@ -25,6 +25,7 @@ public class Buch extends Artikel implements Cloneable {
    *
    * @return the beschreibung
    */
+
   @Override
   public String getBeschreibung() {
     return super.getBeschreibung();
@@ -78,6 +79,7 @@ public class Buch extends Artikel implements Cloneable {
 
     try {
       buch = (Buch) super.clone();
+      buch = (Buch) super.clone();
       buch.titel = this.titel;
       buch.autor = this.autor;
       buch.seiten = this.seiten;
@@ -85,15 +87,6 @@ public class Buch extends Artikel implements Cloneable {
       e.printStackTrace();
     }
     return buch;
-  }
-
-  /**
-   * To string.
-   *
-   * @return the string
-   */
-  public String toString() {
-    return super.toString();
   }
 
   /**
@@ -115,5 +108,15 @@ public class Buch extends Artikel implements Cloneable {
    */
   public int hashCode() {
     return super.hashCode();
+  }
+
+  @Override
+  public String toString() {
+    return "Buch{" +
+        "seiten=" + seiten +
+        ", autor='" + autor + '\'' +
+        ", titel='" + titel + '\'' +
+        ", scanner=" + scanner +
+        '}';
   }
 }

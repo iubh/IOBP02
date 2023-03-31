@@ -25,6 +25,8 @@ public class Sachbuch extends Buch {
      *
      * @return the thema
      */
+    private static final String KLASSEN_PRAEFIX = "SB";
+
     public String getThema() {
         return thema;
     }
@@ -104,7 +106,7 @@ public class Sachbuch extends Buch {
         Sachbuch k = (Sachbuch) super.clone();
         return k;
         // will never catch exception
-        // } catch (CloneNotSupportedException ex) {
+        // }catch (CloneNotSupportedException ex) {
         // System.out.println("Clone exception");
         // return null;
         // }

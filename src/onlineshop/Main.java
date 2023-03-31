@@ -5,6 +5,9 @@ import java.util.Scanner;
 import onlineshop.waren.Buch;
 
 // TODO: Auto-generated Javadoc
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 /**
  * Diese Klasse stellt den Einstiegspunkt in das Programm dar.
  * Dies Klasse beinhaltet die <code>mmain</code>-Methode, mit der
@@ -19,6 +22,7 @@ public class Main {
 
   /** The logger. */
   // private static Logger = LogManager.getLogger(Main.class);
+  private static Logger LOGGER = LogManager.getLogger(Main.class);
 
   /**
    * Der verwendete Online Shop.
