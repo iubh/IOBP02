@@ -299,19 +299,17 @@ public class OnlineShop {
 		}
 	}
 
-	
-	/** 
+	/**
 	 * @return boolean
 	 */
-	public boolean cMkdirs () {
+	public boolean cMkdirs() {
 		String sep = File.separator;
 		String pfad = "yoyoyo" + sep;
 		File verzeichnis = new File(pfad);
-		if(verzeichnis.exists() && verzeichnis.canWrite()) {
+		if (verzeichnis.exists() && verzeichnis.canWrite()) {
 			return true;
-			}
-			else{
-				return verzeichnis.mkdirs();
-			}
+		} else {
+			return verzeichnis.mkdirs();
 		}
+	}
 }
