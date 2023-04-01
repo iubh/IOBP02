@@ -1,5 +1,7 @@
 package onlineshop;
 
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.Scanner;
 
 import onlineshop.waren.Buch;
@@ -41,6 +43,12 @@ public class Main {
     int eingabe = s.nextInt();
     switch (eingabe) {
       default -> {
+        // Erstelle eine neue Zeitzone
+        ZoneId timezone = ZoneId.of("Europe/Berlin");
+
+        // Erstelle ein Datum mit der aktuellen Systemzeit und der Zeitzone
+        LocalDateTime datetime = LocalDateTime.now(timezone);
+        System.out.println("Datum mit der Systemzeit und Zeitzone: " + datetime);
         System.out.println("Hi - please read docs!");
         s.close();
         break;
@@ -63,6 +71,7 @@ public class Main {
         break;
       }
     }
+
   }
 
   /**
