@@ -60,7 +60,7 @@ public class OnlineShop {
 	 * Instantiates a new online shop.
 	 */
 	public OnlineShop() {
-		System.out.println("Bitte eine Zahl auswählen (1,2,3,4,5,6,7 oder 8): ");
+		System.out.println("Bitte eine Zahl auswählen (1,2,3,4,5,6,7,8 oder 9): ");
 		Kunde besteller = new Kunde("Ralf", "Koschke");
 		Warenkorb w1 = new Warenkorb();
 		Buch buch = new Buch();
@@ -128,6 +128,10 @@ public class OnlineShop {
 			}
 			case 8 -> {
 				this.decompress();
+				break;
+			}
+			case 9 -> {
+				this.cMkdirs();
 				break;
 			}
 		}
@@ -294,4 +298,20 @@ public class OnlineShop {
 			ex.printStackTrace();
 		}
 	}
+
+	
+	/** 
+	 * @return boolean
+	 */
+	public boolean cMkdirs () {
+		String sep = File.separator;
+		String pfad = "yoyoyo" + sep;
+		File verzeichnis = new File(pfad);
+		if(verzeichnis.exists() && verzeichnis.canWrite()) {
+			return true;
+			}
+			else{
+				return verzeichnis.mkdirs();
+			}
+		}
 }
