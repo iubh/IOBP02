@@ -1,12 +1,19 @@
 package onlineshop.waren;
 
-import java.util.Scanner;
-
-public class Buch extends Artikel implements Cloneable {
+public class Buch extends Artikel {
   protected int seiten;
-  protected String autor;
   protected String titel;
-  Scanner scanner;
+  protected String autor;
+
+  public Buch() {
+    super();
+  }
+
+  public Buch(String titel, String autor) {
+    super();
+    this.titel = titel;
+    this.autor = autor;
+  }
 
   @Override
   public String getBeschreibung() {
@@ -30,28 +37,4 @@ public class Buch extends Artikel implements Cloneable {
     this.titel = titel;
   }
 
-  @Override
-  public Buch clone() {
-    Buch buch = null;
-
-    try {
-      buch = (Buch)super.clone();
-      buch.titel = this.titel;
-      buch.autor = this.autor;
-      buch.seiten = this.seiten;
-    } catch (CloneNotSupportedException e) {
-      e.printStackTrace();
-    }
-    return buch;
-  }
-
-  @Override
-  public String toString() {
-    return "Buch{" +
-      "seiten=" + seiten +
-      ", autor='" + autor + '\'' +
-      ", titel='" + titel + '\'' +
-      ", scanner=" + scanner +
-      '}';
-  }
 }

@@ -24,9 +24,6 @@ public class Main {
 
   public static void main(String[] args) {
     // write your code here
-    Buch buch = neuesBuch("asdfasdf", "asdfasdfasdf", "asdfasdf", 333);
-    Buch buch2 = buch.clone();
-    System.out.println("buch2 = " + buch2);
 
   }
 

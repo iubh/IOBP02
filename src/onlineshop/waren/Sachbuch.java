@@ -4,7 +4,9 @@ public class Sachbuch extends Buch {
     private static final String KLASSEN_PRAEFIX = "SB";
     private String thema;
 
-    public Sachbuch() {
+    public Sachbuch(String titel, String autor, String thema) {
+        super(titel, autor);
+        this.thema = thema;
     }
 
     public String getThema() {
