@@ -1,8 +1,6 @@
 package onlineshop;
 
 import onlineshop.waren.Buch;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 /**
  * Diese Klasse stellt den Einstiegspunkt in das Programm dar.
@@ -15,11 +13,7 @@ import org.apache.logging.log4j.Logger;
  * @version 1.0
  */
 public class Main {
-  private static Logger LOGGER = LogManager.getLogger(Main.class);
-
-  /**
-   * Der verwendete Online Shop.
-   */
+  /** Der verwendete Online Shop*/
   public OnlineShop onlineShop = null;
 
   public static void main(String[] args) {
