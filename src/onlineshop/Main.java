@@ -17,9 +17,7 @@ import org.apache.logging.log4j.Logger;
 public class Main {
   private static Logger LOGGER = LogManager.getLogger(Main.class);
 
-  /**
-   * Der verwendete Online Shop.
-   */
+  /** Der verwendete Online Shop*/
   public OnlineShop onlineShop = null;
 
   public static void main(String[] args) {

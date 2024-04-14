@@ -15,26 +15,19 @@ public class Buch extends Artikel {
     this.autor = autor;
   }
 
-  @Override
   public String getBeschreibung() {
     return super.getBeschreibung();
   }
 
-  @Deprecated
   public void setSeiten(int seiten) {
     this.seiten = seiten;
-  }
-
-  public void setAnzahlSeiten(int seiten) {
-    this.seiten = seiten;
-  }
-
-  public void setAutor(final String autor) {
-    this.autor = autor;
   }
 
   public void setTitel(final String titel) {
     this.titel = titel;
   }
 
+  public void setAutor(final String autor) {
+    this.autor = autor;
+  }
 }
