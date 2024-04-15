@@ -13,16 +13,13 @@ public class OnlineShop {
     private static final Logger logger = LogManager.getLogger(OnlineShop.class);
 
     public static void main(String[] args) {
-/*
-        Kunde kunde = new Kunde( "Karl", "Rietmann", Kunde.MAENNLICH, "27.05.1986", new Warenkorb());
-        logger.info(kunde);
-*/
         Scanner scan = new Scanner(System.in);
         System.out.print("Bitte geben Sie eine Testfall-Nummer (1, 2 oder 3) ein: ");
         int testNr = scan.nextInt();
 
-        Kunde testKunde = null;
         Warenkorb cart = new Warenkorb();
+        Kunde vergleichsKunde = new Kunde("Freddie", "Walker", Kunde.MAENNLICH, "20.01.1957", cart);
+        Kunde testKunde = null;
 
         switch (testNr) {
             case 1:
@@ -39,6 +36,8 @@ public class OnlineShop {
         }
 
         logger.debug("Testfall: " + testNr);
-        logger.debug(testKunde);
+        logger.debug("Kunde.toString(): " + testKunde.toString());
+        logger.debug("Kunde.compareTo(): " + testKunde.compareTo(vergleichsKunde));
+        logger.debug("Kunde.equals(): " + testKunde.equals(vergleichsKunde));
     }
 }
