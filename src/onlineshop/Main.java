@@ -1,28 +1,25 @@
 package onlineshop;
 
+import onlineshop.waren.Artikel;
 import onlineshop.waren.Buch;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import onlineshop.waren.Sachbuch;
 
 /**
  * Diese Klasse stellt den Einstiegspunkt in das Programm dar.
- * Dies Klasse beinhaltet die <code>mmain</code>-Methode, mit der
+ * Dies Klasse beinhaltet die <code>main</code>-Methode, mit der
  * das Programm gestartet wird. Die <code>main</code>-Methode erzeugt
  * alle benötigten Objekte selbst und beendet sich, nachdem alle
  * Anweisungen abgearbeitet wurden.
  *
  * @author Alfred Walther
- * @version 1.0
+ * @version 1.1
  */
 public class Main {
-  private static Logger LOGGER = LogManager.getLogger(Main.class);
-
   /** Der verwendete Online Shop*/
   public OnlineShop onlineShop = null;
 
   public static void main(String[] args) {
     // write your code here
-
   }
 
   /**

@@ -4,6 +4,17 @@ import onlineshop.waren.Artikel;
 import onlineshop.waren.Buch;
 import onlineshop.waren.Sachbuch;
 
+/**
+ * Testet die Shop-Klassen. Für einen erfolgreichen Testdurchlauf müssen
+ * folgende Methoden in den Shop-Klassen implementiert werden:<br/>
+ * <code>Sachbuch.clone()</code><br/>
+ * <code>equals()</code><br/>
+ * <code>hashCode()</code><br/>
+ * <code>toString()</code><br/>
+ *
+ * @author Alfred Walther
+ * @version 1.1
+ */
 public class ShopTest {
 
     public static void main(String[] args) {
