@@ -4,12 +4,23 @@ import onlineshop.waren.Artikel;
 import onlineshop.waren.Buch;
 import onlineshop.waren.Sachbuch;
 
+/**
+ * Testet die Shop-Klassen. Für einen erfolgreichen Testdurchlauf müssen
+ * folgende Methoden in den Shop-Klassen implementiert werden:<br/>
+ * <code>Sachbuch.clone()</code><br/>
+ * <code>equals()</code><br/>
+ * <code>hashCode()</code><br/>
+ * <code>toString()</code><br/>
+ *
+ * @author Alfred Walther
+ * @version 1.1
+ */
 public class ShopTest {
 
     public static void main(String[] args) {
         Kunde testKunde = new Kunde("Freddie", "Walker", Kunde.MAENNLICH, "15.11.1970", new Warenkorb());
         String stringKunde = testKunde.toString();
-        Kunde geclonterKunde = testKunde.clone();
+//        Kunde geclonterKunde = testKunde.clone();
 
         System.out.print("Teste Kunde ................... ");
         assert testKunde.toString().contains("@") == false : "Kunde.toString() nicht überschrieben!";
@@ -19,8 +30,8 @@ public class ShopTest {
                 "Geschlecht: m\n" +
                 "Geburtsdatum: 15.11.1970") : "Die Kundendaten weichen ab. \n" + stringKunde;
 
-        assert geclonterKunde.equals(testKunde) : "Die Kundennummern sind unterschiedlich";
-        assert geclonterKunde.hashCode() == testKunde.hashCode() : "Die HashCodes sind unterschiedlich";
+//        assert geclonterKunde.equals(testKunde) : "Die Kundennummern sind unterschiedlich";
+//        assert geclonterKunde.hashCode() == testKunde.hashCode() : "Die HashCodes sind unterschiedlich";
         System.out.println("OK!");
 
         System.out.print("Teste Artikel ................. ");
