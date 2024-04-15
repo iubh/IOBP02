@@ -1,6 +1,8 @@
 package onlineshop.waren;
 
 
+import java.util.Objects;
+
 /**
  * Repräsentiert ein Shop-Buch.<br/>
  * Erbt von {@link Artikel}.<br/>
@@ -41,5 +43,27 @@ public class Buch extends Artikel {
 
     public void setAutor(final String autor) {
         this.autor = autor;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        Buch buch = (Buch) o;
+        return Objects.equals(titel, buch.titel) && Objects.equals(autor, buch.autor);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(titel, autor);
+    }
+
+    @Override
+    public String toString() {
+        return "Buch{" +
+                "titel='" + titel + '\'' +
+                ", autor='" + autor + '\'' +
+                '}';
     }
 }

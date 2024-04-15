@@ -4,6 +4,7 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Objects;
 
 /**
  * Repräsentiert einen Shop-Kunden<br/>
@@ -18,7 +19,7 @@ import java.util.Date;
  * @author Alfred Walther
  * @version 1.1
  */
-public class Kunde {
+public class Kunde implements Cloneable, Comparable<Kunde> {
     /** steht für "männlich" */
     public final static String MAENNLICH = "m";
     /** steht für "weiblich" */
@@ -50,5 +51,42 @@ public class Kunde {
             throw new RuntimeException(e);
         }
         this.warenkorb = warenkorb;
+    }
+
+    public Kunde clone() {
+        try {
+            Kunde k = (Kunde) super.clone();
+            return k;
+        } catch (CloneNotSupportedException ex) {
+            System.out.println("Cloning of 'Kunde' not supported");
+            return null;
+        }
+    }
+
+    @Override
+    public int compareTo(Kunde k) {
+        return kundennummer - k.kundennummer;
+    }
+
+    @Override
+    public boolean equals(Object vergleichsKunde) {
+        if (this == vergleichsKunde) return true;
+        if (vergleichsKunde == null || getClass() != vergleichsKunde.getClass()) return false;
+        Kunde kunde = (Kunde) vergleichsKunde;
+        return kundennummer == kunde.kundennummer;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(kundennummer);
+    }
+
+    @Override
+    public String toString() {
+        return "Kunden-Objekt enthält folgende Daten: " +
+                "\nVorname: " + vorname +
+                "\nNachname: " + name +
+                "\nGeschlecht: " + geschlecht +
+                "\nGeburtsdatum: " + df.format(geburtsdatum);
     }
 }

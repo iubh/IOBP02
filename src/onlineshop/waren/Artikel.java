@@ -1,5 +1,7 @@
 package onlineshop.waren;
 
+import java.util.Objects;
+
 /**
  * Repräsentiert einen Shop-Artikel.<br/
  * Felder:<br/>
@@ -10,7 +12,7 @@ package onlineshop.waren;
  * @author Alfred Walther
  * @version 1.1
  */
-public class Artikel implements Cloneable {
+public class Artikel implements Comparable<Artikel> {
   /** erzeugt für jeden Artikel eine neue Artikelnummer */
   private static int artikelCounter = 1;
   protected String beschreibung;
@@ -34,4 +36,31 @@ public class Artikel implements Cloneable {
     this.hersteller = hersteller;
   }
 
+  @Override
+  public int compareTo(Artikel other) {
+    if (other == null) throw new RuntimeException("[Artikel.compareTo] Der Vergleichsartikel ist null!");
+    if (this == other) return 0;
+    return this.artikelNr - other.artikelNr;
+  }
+
+  @Override
+  public boolean equals(Object vergleichsArtikel) {
+    if (this == vergleichsArtikel) return true;
+    if (vergleichsArtikel == null || getClass() != vergleichsArtikel.getClass()) return false;
+    Artikel artikel = (Artikel) vergleichsArtikel;
+    return Objects.equals(beschreibung, artikel.beschreibung);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(beschreibung, hersteller);
+  }
+
+  @Override
+  public String toString() {
+    return "Artikel{" +
+            "beschreibung='" + beschreibung + '\'' +
+            ", hersteller='" + hersteller + '\'' +
+            '}';
+  }
 }

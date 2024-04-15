@@ -20,7 +20,7 @@ public class ShopTest {
     public static void main(String[] args) {
         Kunde testKunde = new Kunde("Freddie", "Walker", Kunde.MAENNLICH, "15.11.1970", new Warenkorb());
         String stringKunde = testKunde.toString();
-//        Kunde geclonterKunde = testKunde.clone();
+        Kunde geclonterKunde = testKunde.clone();
 
         System.out.print("Teste Kunde ................... ");
         assert testKunde.toString().contains("@") == false : "Kunde.toString() nicht überschrieben!";
@@ -30,8 +30,8 @@ public class ShopTest {
                 "Geschlecht: m\n" +
                 "Geburtsdatum: 15.11.1970") : "Die Kundendaten weichen ab. \n" + stringKunde;
 
-//        assert geclonterKunde.equals(testKunde) : "Die Kundennummern sind unterschiedlich";
-//        assert geclonterKunde.hashCode() == testKunde.hashCode() : "Die HashCodes sind unterschiedlich";
+        assert geclonterKunde.equals(testKunde) : "Die Kundennummern sind unterschiedlich";
+        assert geclonterKunde.hashCode() == testKunde.hashCode() : "Die HashCodes sind unterschiedlich";
         System.out.println("OK!");
 
         System.out.print("Teste Artikel ................. ");
