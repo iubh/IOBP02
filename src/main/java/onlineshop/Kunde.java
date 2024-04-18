@@ -4,12 +4,15 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Objects;
 
-public class Kunde implements Cloneable, Comparable<Kunde> {
+public class Kunde {
+    /** steht für "männlich" */
     public final static String MAENNLICH = "m";
+    /** steht für "weiblich" */
     public final static String WEIBLICH = "w";
+    /** erzeugt für jeden Kunden eine neue Kundennummer */
     private static int kundenCounter = 1;
+    /** wandelt den Date-String in ein {@link java.util.Date} um */
     private static DateFormat df = new SimpleDateFormat("dd.mm.yyyy");
 
     protected int kundennummer;
@@ -36,41 +39,5 @@ public class Kunde implements Cloneable, Comparable<Kunde> {
         this.warenkorb = warenkorb;
     }
 
-
-    public Kunde clone() {
-        try {
-            Kunde k = (Kunde) super.clone();
-            return k;
-        } catch (CloneNotSupportedException ex) {
-            System.out.println("Cloning of 'Kunde' not supported");
-            return null;
-        }
-    }
-
-    @Override
-    public int compareTo(Kunde k) {
-        return kundennummer - k.kundennummer;
-    }
-
-    @Override
-    public boolean equals(Object vergleichsKunde) {
-        if (this == vergleichsKunde) return true;
-        if (vergleichsKunde == null || getClass() != vergleichsKunde.getClass()) return false;
-        Kunde kunde = (Kunde) vergleichsKunde;
-        return kundennummer == kunde.kundennummer;
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(kundennummer);
-    }
-
-    @Override
-    public String toString() {
-        return "Kunden-Objekt enthält folgende Daten: " +
-                "\nVorname: " + vorname +
-                "\nNachname: " + name +
-                "\nGeschlecht: " + geschlecht +
-                "\nGeburtsdatum: " + df.format(geburtsdatum);
-    }
+    // TODO: implementiere die Methode "clone()"
 }
