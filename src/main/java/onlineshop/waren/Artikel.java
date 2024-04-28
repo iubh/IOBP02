@@ -1,6 +1,6 @@
 package onlineshop.waren;
 
-public class Artikel {
+public class Artikel implements Comparable<Artikel> {
   private static int artikelCounter = 1;
   /** Beschreibungstext des Artikel */
   protected String beschreibung;
@@ -23,7 +23,16 @@ public class Artikel {
     return beschreibung;
   }
 
+  public String getHersteller() {
+    return hersteller;
+  }
+
   public void setHersteller(final String hersteller) {
     this.hersteller = hersteller;
+  }
+
+  @Override
+  public int compareTo(Artikel andererArtikel) {
+    return this.beschreibung.compareTo(andererArtikel.beschreibung);
   }
 }

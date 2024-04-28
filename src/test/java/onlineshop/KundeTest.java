@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 
 class KundeTest {
     // 1. Arrange
-    final Kunde kunde = new Kunde("Freddie", "Walker", "m", "15.11.1970", new Warenkorb());
+    final Kunde kunde = new Kunde("Freddie", "Walker", "m", "15.11.1970");
 
     @Test
     void testClone() {
